@@ -38,26 +38,31 @@ var x = [
 "http://view.asiae.co.kr/news/",
 "http://www.ohmynews.com/nws_web/view/at_pg.aspx",
 "http://www.munhwa.com/news/view.html",
-"http://news.hankooki.com/lpage/",
+"hankooki.com/lpage/",
 "http://www.hani.co.kr/arti/",
-"http://cnews.mt.co.kr/mtview.php"
+"http://cnews.mt.co.kr/mtview.php",
+"http://www.dailian.co.kr/news/news_view.htm",
+"http://www.newdaily.co.kr/news/article.html",
+"http://news.donga.com/",
+"http://view.koreaherald.com/kh/view.php",
+"http://www.pressian.com/article/article.asp"
 ];
 
-var url = document.URL;
-
 function isThisNews(url) {
-	for (i in x) 
-		if (url.toLowerCase().indexOf(x[i]) > -1) 
+	for (l in x) 
+		if (url.toLowerCase().indexOf(x[l]) > -1)
 			return true;
-	return false;
 }
 
-var links = document.links;
+if (top === self) {
 
-if (top == self && isThisNews(url))
-	window.location = "http://www.instapaper.com/text?u=" + encodeURIComponent(url);
-//
-//else
-//	for (i in links)
-//		if (isThisNews(links[i]).href)
-//			links[i].href = "http://www.instapaper.com/text?u=" + encodeURIComponent(links[i].href);
+	var url = document.URL;
+	var links = document.links;
+
+	if (isThisNews(url))
+		window.location = "http://www.instapaper.com/text?u=" + encodeURIComponent(url);
+	else 
+		for (i in links)
+			if (isThisNews(links[i].href))
+				links[i].href = "http://www.instapaper.com/text?u=" + encodeURIComponent(links[i].href);
+};
