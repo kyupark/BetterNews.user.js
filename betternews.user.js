@@ -39,7 +39,8 @@ var x = [
 "http://www.ohmynews.com/nws_web/view/at_pg.aspx",
 "http://www.munhwa.com/news/view.html",
 "http://news.hankooki.com/lpage/",
-"http://www.hani.co.kr/arti/"
+"http://www.hani.co.kr/arti/",
+"http://cnews.mt.co.kr/mtview.php"
 ];
 
 var url = document.URL;
@@ -55,7 +56,6 @@ var links = document.links;
 
 if (top == self && isThisNews(url))
 	window.location = "http://www.instapaper.com/text?u=" + encodeURIComponent(url);
-
 //
 //else
 //	for (i in links)
